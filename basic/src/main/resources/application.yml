@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        http-only: true #如果为true，则浏览器脚本将无法访问cookie
+        secure: false #如果为true，则仅通过HTTPS连接发送cookie，HTTP无法携带cookie。
+spring:
+  security:
+    loginType: JSON
+  freemarker:
+    cache: false
+    suffix: .html # 模版后缀名 默认为ftl
+    charset: UTF-8 # 文件编码
+    template-loader-path: classpath:/templates/
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://localhost:3306/security-db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+    username: root
+    password: 111111
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+logging:
+  level:
+    com:
+      bidr:
+        basic:
+          mapper: debug
